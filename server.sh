@@ -6,7 +6,8 @@ do
 	# For openbsd, add -p to nc
 	 echo 'HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
-Content-Type: text/html\n\n'$(cat ~/trash/test.eml) \
+Content-Type: text/html\n\n' \
+$(cat ~/trash/test.eml) \
 |  nc -l -p 8089   | grep "GET"
 } | grep "HTTP" \
 | perl -pe 's{.*param1=(.*).title=(.*).HTTP.1.1}{"$2","$1"\n$1\n}g' \
