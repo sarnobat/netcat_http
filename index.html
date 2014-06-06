@@ -7,7 +7,7 @@
 <script>
 $(document).ready(function(){
   $("button").click(function(){
-    $.getJSON("http://localhost:9099/helloworld/json?param1=" + document.getElementById("urls").innerHTML,function(result){
+    $.getJSON("http://ubunut.local:8089?param1=" + document.getElementById("urls").innerHTML,function(result){
       $.each(result, function(i, field){
         $("div").append(i + " " + field + " ");
       });
