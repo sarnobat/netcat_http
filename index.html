@@ -6,13 +6,18 @@
 </script>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
-    $.getJSON("http://ubunut.local:8089?param1=" + document.getElementById("urls").innerHTML,function(result){
-      $.each(result, function(i, field){
-        $("div").append(i + " " + field + " ");
-      });
-    });
-  });
+	$("button").click(function(){
+		$.getJSON("http://ubuntu.local:8089?param1=foobar")
+			.done(function(result) {
+				$.each(result, function(i, field){
+					$("div").append(i + "::" + field + " " + "<BR>");
+				});
+			})
+			.fail(function(e) {
+				console.log(e);
+				console.log(e.responseText);
+			});
+		});
 });
 </script>
 </head>
