@@ -6,8 +6,8 @@ do
 	# For openbsd, add -p to nc
 	 echo 'HTTP/1.1 200 OK
 Access-Control-Allow-Origin: *
-Content-Type: text/html\n\n' \
-$(cat ~/trash/test.eml) \
+Content-Type: application/json\n\n' \
+'{"Hello":"world", "apples" : "oranges"}' \
 	| nc -l -p 8089 \
 	| grep "GET"
 }  	| grep "HTTP" \
