@@ -8,7 +8,10 @@ do
 Access-Control-Allow-Origin: *
 Server: Apache/2.2.22 (Ubuntu)
 Last-Modified: Thu, 29 May 2014 03:26:28 GMT
-ETag: "29ffda-3fb4-4fa817e984137"\nAccept-Ranges: bytes\nVary: Accept-Encoding\nContent-Type: text/html\n\n'$(cat ~/trash/test.eml) \
+ETag: "29ffda-3fb4-4fa817e984137"
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Content-Type: text/html\n\n'$(cat ~/trash/test.eml) \
 |  nc -l -p 8089   | grep "GET"
 } | grep "HTTP" \
 | perl -pe 's{.*param1=(.*).title=(.*).HTTP.1.1}{"$2","$1"\n$1\n}g' \
