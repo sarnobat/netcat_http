@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> -->
+<script src="jquery/jquery-1.9.1.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.getJSON("http://localhost:9099/helloworld/json?param1=" + document.getElementById("urls").innerHTML,function(result){
+      $.each(result, function(i, field){
+        $("div").append(i + " " + field + " ");
+      });
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<textarea id="urls">http://www.yahoo.com</textarea>
+<button>Stash this</button>
+<div></div>
+
+</body>
+</html>
