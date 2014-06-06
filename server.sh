@@ -9,7 +9,8 @@ Access-Control-Allow-Origin: *
 Content-Type: application/json
 
 ' \
-'{"Hello":"world", "apples" : "oranges"}' \
+'
+{"Hello":"world", "apples" : "oranges"}' \
 	| nc -l -p 8089 \
 	| grep "GET"
 }  	| grep "HTTP" \
